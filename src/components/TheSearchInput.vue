@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { useBlockChain } from '@/composables/useBlockChain'
+import { useBlockChainStore } from '@/store'
 
-const blockHash = ref<string>('')
+const blockChainStore = useBlockChainStore()
+const { blockHash } = storeToRefs(blockChainStore)
 
 const { refresh, blockChain, errorMsg, loading } = useBlockChain(blockHash)
 </script>
