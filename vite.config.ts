@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
@@ -7,10 +7,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Injection from 'vite-plugin-injection'
 import Unocss from 'unocss/vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import { createBlockletPlugin } from 'vite-plugin-blocklet'
 
 // https://vitejs.dev/config/
-export default () => {
+export default ({ mode }) => {
   // load .env.[mode]
+  const envMap = loadEnv(mode, process.cwd(), '')
   return defineConfig({
     resolve: {
       alias: {
@@ -20,6 +23,15 @@ export default () => {
     },
     plugins: [
       Vue(),
+      createHtmlPlugin({
+        minify: true,
+        inject: {
+          data: {
+            title: envMap.APP_TITLE,
+          },
+        },
+      }),
+      createBlockletPlugin(),
       VueJsx(),
       Unocss(),
       Injection(),

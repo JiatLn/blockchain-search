@@ -9,13 +9,20 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "dev:vite": "vite",
     "build": "vite build",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite build && vite preview",
     "prepare": "husky install",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "dev": "blocklet dev",
+    "start": "vite --host",
+    "serve": "vite preview",
+    "clean": "rm -rf .blocklet",
+    "bundle": "npm run clean && vite build && blocklet bundle --zip --create-release",
+    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
+    "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json"
   },
   "dependencies": {
     "@unocss/reset": "^0.45.21",
@@ -26,6 +33,8 @@
     "pinia": "^2.0.22",
     "pinia-plugin-keep": "^0.3.0",
     "unocss": "^0.45.21",
+    "vite-plugin-blocklet": "^0.4.53",
+    "vite-plugin-html": "^3.2.0",
     "vue": "^3.2.39",
     "vue-router": "4"
   },
