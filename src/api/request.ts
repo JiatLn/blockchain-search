@@ -1,4 +1,5 @@
 import axios from 'axios'
+import type { AxiosError } from 'axios'
 import { INVALID_TOKEN, NO_PERMISSION, OK_CODE } from '@/app/keys'
 import router from '@/router'
 import type { IUserInfo } from '@/store/modules/useUserStore'
@@ -42,7 +43,7 @@ requests.interceptors.response.use(
     }
     return Promise.resolve(resp)
   },
-  (error) => {
+  (error: AxiosError) => {
     return Promise.reject(error)
   },
 )

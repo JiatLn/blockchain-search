@@ -1,14 +1,23 @@
 <script setup lang="ts">
-const blockHash = ref<string>('tttt')
-const onSearch = () => {
-  console.log(blockHash.value)
-}
+import { useBlockChain } from '@/composables/useBlockChain'
+
+const blockHash = ref<string>('')
+
+const { refresh, blockChain, errorMsg, loading } = useBlockChain(blockHash)
 </script>
 
 <template>
-  <div flex="c col">
-    <input v-model="blockHash" w="80%" p-2 my-2 rounded border="~ gray-400/50" type="text" placeholder="input a block hash and keydown enter to search" @keydown.enter="onSearch">
-    {{ blockHash }}
+  <div flex="c col" w="80%">
+    <input v-model="blockHash" v-focus w-full p-2 my-8 rounded border="~ gray-400/50" type="text" placeholder="Input a block hash and keydown enter to search" @keydown.enter="refresh">
+    <div v-if="loading" my-20 w-30px h-30px i-eos-icons:bubble-loading />
+    <template v-else>
+      <div v-if="blockChain" w-full overflow-auto>
+        {{ blockChain }}
+      </div>
+      <div v-else>
+        {{ errorMsg }}
+      </div>
+    </template>
   </div>
 </template>
 
