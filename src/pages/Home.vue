@@ -20,9 +20,10 @@ function onChangeHash(hash: string) {
     <template v-else>
       <div v-if="blockChain" w-full overflow-auto>
         <TheDetail :block="blockChain" @onChangeHash="onChangeHash" />
+        <Transcations :tx-list="blockChain.tx" />
       </div>
       <div v-else flex="c col gap-30px">
-        {{ errorMsg }}
+        {{ errorMsg?.message || errorMsg }} :(
         <button btn @click="refresh">
           Retry
         </button>

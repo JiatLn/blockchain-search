@@ -18,3 +18,7 @@ export function formatVersion(ver: number) {
 export function formatBTC(val: number) {
   return `${(val / 100000000).toFixed(8)} BTC`
 }
+
+export function formatFee(num: number) {
+  return num > 1000 ? `${(num / 1000).toFixed(1)}k` : num
+}

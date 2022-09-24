@@ -16,7 +16,7 @@ function onChangeHash(hash: string) {
 </script>
 
 <template>
-  <div mx-auto max-w-800px border-b="~ gray-300" pb-30px>
+  <div mx-auto max-w-800px pb-30px>
     <div mb-4>
       <div font="bold" text="30px">
         Bitcoin Block #{{ formatNumber(block.block_index) }}

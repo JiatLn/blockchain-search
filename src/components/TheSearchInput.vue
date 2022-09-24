@@ -12,7 +12,7 @@ const { blockHash } = storeToRefs(blockChainStore)
 
 <template>
   <div flex="c col" w="80%" max-w-800px>
-    <input v-model="blockHash" v-focus w-full p-2 my-8 rounded border="~ gray-400/50" type="text" placeholder="Input a block hash and keydown enter to search" @keydown.enter="emit('onSearch')">
+    <input v-model.trim="blockHash" v-focus w-full p-2 my-8 rounded border="~ gray-400/50" type="text" placeholder="Input a block hash and keydown enter to search" @keydown.enter="emit('onSearch')">
   </div>
 </template>
 
