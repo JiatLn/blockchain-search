@@ -24,7 +24,7 @@ const useHttp = <T>(config: HTTPConfig): Promise<T> => {
         resolve(resp.data)
       })
       .catch((err: AxiosError) => {
-        reject(err.response?.data)
+        reject(err)
       })
   })
 }
