@@ -16,7 +16,7 @@ requests.interceptors.response.use(
     return Promise.resolve(resp)
   },
   (error: any) => {
-    return Promise.reject(error.response.data)
+    return Promise.reject(error?.response?.data || error)
   },
 )
 
