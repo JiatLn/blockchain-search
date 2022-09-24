@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div mx-auto max-w-800px pb-30px>
+  <div mx-auto max-w-800px pb-30px px-14px>
     <h3 border-b="~ gray-300" pb-2 mb-6>
       Transcations
     </h3>

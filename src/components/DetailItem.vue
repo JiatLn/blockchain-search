@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div flex="~" items-center h-32px>
+  <div flex="~" min-h-32px>
     <div w-160px>
       {{ props.prop }}
     </div>
