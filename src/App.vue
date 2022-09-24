@@ -6,5 +6,11 @@ import Layout from '@/layout/index.vue'
   <Layout />
 </template>
 
-<style lang="less" scoped>
+<style lang="less">
+html.dark {
+  color: white;
+  background: #333;
+
+  color-scheme: dark;
+}
 </style>

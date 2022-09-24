@@ -1,6 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
+  <TheHeader />
   <section h-fs>
     <router-view />
   </section>
