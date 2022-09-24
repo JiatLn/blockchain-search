@@ -45,17 +45,17 @@ export default ({ mode }) => {
     ],
     server: {
       host: '0.0.0.0',
-      port: 5577,
-      proxy: {
-        [config.VITE_BASE_API]: {
-          target: config.VITE_API_URL,
-          changeOrigin: true,
-          rewrite: (path) => {
-            const reg = new RegExp(`^${config.VITE_BASE_API}`)
-            return path.replace(reg, '')
-          },
-        },
-      },
+      port: 2022,
+      // proxy: {
+      //   [config.VITE_BASE_API]: {
+      //     target: config.VITE_API_URL,
+      //     changeOrigin: true,
+      //     rewrite: (path) => {
+      //       const reg = new RegExp(`^${config.VITE_BASE_API}`)
+      //       return path.replace(reg, '')
+      //     },
+      //   },
+      // },
     },
     // to solve warning: "@charset" must be the first rule in the file
     css: {
