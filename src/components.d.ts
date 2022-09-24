@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ClipboardBtn: typeof import('./components/common/ClipboardBtn.vue')['default']
     DetailItem: typeof import('./components/DetailItem.vue')['default']
     LazyImg: typeof import('./components/common/LazyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

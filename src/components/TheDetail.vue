@@ -22,10 +22,16 @@ const { block } = defineProps<{
     </h3>
     <div grid="~ cols-2">
       <DetailItem prop="Hash">
-        {{ formatHash(block.hash) }}
+        <div flex items-center>
+          {{ formatHash(block.hash) }}
+          <ClipboardBtn :content="block.hash" />
+        </div>
       </DetailItem>
       <DetailItem prop="Merkle Root">
-        {{ formatHash(block.mrkl_root, 2) }}
+        <div flex items-center>
+          {{ formatHash(block.mrkl_root, 2) }}
+          <ClipboardBtn :content="block.mrkl_root" />
+        </div>
       </DetailItem>
       <DetailItem prop="Size">
         {{ formatNumber(block.size) }}
@@ -61,6 +67,6 @@ const { block } = defineProps<{
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 
 </style>
