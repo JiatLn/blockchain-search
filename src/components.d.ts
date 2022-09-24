@@ -3,7 +3,7 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
-export {}
+export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
@@ -13,5 +13,6 @@ declare module '@vue/runtime-core' {
     TheBox: typeof import('./components/common/TheBox.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     TheHeader: typeof import('./components/TheHeader.vue')['default']
+    TheSearchInput: typeof import('./components/TheSearchInput.vue')['default']
   }
 }
