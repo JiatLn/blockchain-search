@@ -34,8 +34,7 @@ function onNextPage() {
     <div grid="~ cols-1 gap-5">
       <div
         v-for="(tx, idx) in pageList" :key="tx.hash"
-        flex="~" lt-sm:flex-col justify-between border="~ gray-300" rounded-8px p-2
->
+        flex="~" lt-sm:flex-col justify-between border="~ gray-300" rounded-8px p-2>
         <div flex="~ col">
           <div font="mono">
             TX {{ (page - 1) * pageSize + idx }} <span text="gray">· Hash</span> <span text="orange">{{ formatHash(tx.hash, 4) }}</span>
@@ -46,7 +45,7 @@ function onNextPage() {
         </div>
         <div flex="~ col">
           <div text="14px" font="mono">
-            <span text="red">Fee</span> {{ formatFee(tx.fee) }} Sats
+            <span text="red">Fee</span> {{ formatFee(tx.fee) }}
           </div>
           <div />
         </div>
@@ -56,8 +55,7 @@ function onNextPage() {
       <button
         dark="text-white! border-white!"
         :disabled="page === 1" :class="{ disabled: page === 1 }"
-        class="page-btn" @click="onPrevPage"
->
+        class="page-btn" @click="onPrevPage">
         Prev Page
       </button>
       <div text="14px dark:white">
@@ -67,8 +65,7 @@ function onNextPage() {
       <button
         dark="text-white! border-white!"
         class="page-btn" :class="{ disabled: page >= Math.ceil(total / pageSize) }"
-        :disabled="page >= Math.ceil(total / pageSize)" @click="onNextPage"
->
+        :disabled="page >= Math.ceil(total / pageSize)" @click="onNextPage">
         Next Page
       </button>
     </div>

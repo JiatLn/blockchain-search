@@ -15,6 +15,8 @@ export function useBlockChain(blockHash: Ref<string>) {
       loading.value = true
       const data = await getBlockChainApi(blockHash.value)
       blockChain.value = data
+      const store = useBlockChainStore()
+      store.addRecentSearch(data.hash)
     }
     catch (error: any) {
       console.error(error)
