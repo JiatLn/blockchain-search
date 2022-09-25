@@ -58,7 +58,7 @@ function onNextPage() {
         class="page-btn" @click="onPrevPage">
         Prev Page
       </button>
-      <div text="14px white">
+      <div text="14px dark:white">
         <span text="orange" font="semibold">{{ page }}</span>
         / {{ Math.ceil(total / pageSize) }}
       </div>
