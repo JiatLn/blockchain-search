@@ -22,19 +22,22 @@
     "clean": "rm -rf .blocklet",
     "bundle": "npm run clean && vite build && blocklet bundle --zip --create-release",
     "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
-    "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json"
+    "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
+    "test": "vitest"
   },
   "dependencies": {
     "@unocss/reset": "^0.45.21",
     "@vueuse/core": "^9.2.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
+    "jsdom": "^20.0.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.22",
     "pinia-plugin-keep": "^0.3.0",
     "unocss": "^0.45.21",
     "vite-plugin-blocklet": "^0.4.53",
     "vite-plugin-html": "^3.2.0",
+    "vitest": "^0.23.4",
     "vue": "^3.2.39",
     "vue-router": "4"
   },
