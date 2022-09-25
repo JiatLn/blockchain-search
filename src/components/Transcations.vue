@@ -7,7 +7,7 @@ const props = defineProps<{
 }>()
 
 const page = ref(1)
-const pageSize = ref(8)
+const pageSize = ref(10)
 const total = computed(() => props.txList.length)
 const pageList = computed(() => {
   return props.txList.slice((page.value - 1) * pageSize.value, page.value * pageSize.value)
@@ -34,7 +34,8 @@ function onNextPage() {
     <div grid="~ cols-1 gap-5">
       <div
         v-for="(tx, idx) in pageList" :key="tx.hash"
-        flex="~" lt-sm:flex-col justify-between border="~ gray-300" rounded-8px p-2>
+        flex="~" lt-sm:flex-col justify-between border="~ gray-300" rounded-8px p-2
+>
         <div flex="~ col">
           <div font="mono">
             TX {{ (page - 1) * pageSize + idx }} <span text="gray">· Hash</span> <span text="orange">{{ formatHash(tx.hash, 4) }}</span>
@@ -55,7 +56,8 @@ function onNextPage() {
       <button
         dark="text-white! border-white!"
         :disabled="page === 1" :class="{ disabled: page === 1 }"
-        class="page-btn" @click="onPrevPage">
+        class="page-btn" @click="onPrevPage"
+>
         Prev Page
       </button>
       <div text="14px dark:white">
@@ -65,7 +67,8 @@ function onNextPage() {
       <button
         dark="text-white! border-white!"
         class="page-btn" :class="{ disabled: page >= Math.ceil(total / pageSize) }"
-        :disabled="page >= Math.ceil(total / pageSize)" @click="onNextPage">
+        :disabled="page >= Math.ceil(total / pageSize)" @click="onNextPage"
+>
         Next Page
       </button>
     </div>
