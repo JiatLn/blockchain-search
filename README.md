@@ -10,7 +10,7 @@ npm install -g yarn
 
 yarn install
 
-yarn run dev
+yarn run dev:vite
 ```
 
 ## 🚀 Features
